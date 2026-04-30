@@ -1,0 +1,20 @@
+{
+  "name": "ready-set-exam-nje",
+  "version": "1.0.0",
+  "description": "Ready Set Exam - NJE - exam preparation platform",
+  "homepage": "https://github.com/sollabong/ready-set-exam-nje#readme",
+  "bugs": {
+    "url": "https://github.com/sollabong/ready-set-exam-nje/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sollabong/ready-set-exam-nje.git"
+  },
+  "license": "MIT",
+  "author": "D0345Y,F5MJUS,RUG70U",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  }
+}
