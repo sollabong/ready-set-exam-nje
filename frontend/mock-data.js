@@ -18,3 +18,22 @@ export const tasks = [
     explain: "Pitágorasz tétel: $a^2 + b^2 = c^2$ → $3^2 + 4^2 = 25$ → $c = 5$.",
   },
 ];
+
+export const semesters = [
+  {
+    id: 1,
+    name: "I. FÉLÉV",
+    subjects: [
+      { id: 'an1', name: 'ANALÍZIS I.' },
+      { id: 'fiz1', name: 'FIZIKA' },
+    ]
+  },
+  {
+    id: 2,
+    name: "II. FÉLÉV",
+    subjects: [
+      { id: 'an2', name: 'ANALÍZIS II.' },
+      { id: 'prog1', name: 'PROGRAMOZÁS I. (C++)' },
+    ]
+  }
+];

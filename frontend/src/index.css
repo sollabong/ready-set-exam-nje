@@ -1,4 +1,29 @@
 :root {
-  background: white;
-  color: black;
+  --primary-color: #6a5acd;  
+  --accent-color: #ff4081;       
+  --bg-light: #f8f9fe;           
+  --white: #ffffff;              
+  --text-main: #333333;          
+  --text-muted: #777777;         
+  --border-color: #e0e0e0;       
+
+  --sidebar-width: 260px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --border-radius: 8px;
+
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  color: var(--text-main);
 }
