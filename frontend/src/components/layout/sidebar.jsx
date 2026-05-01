@@ -5,11 +5,11 @@ import { logoIcon } from '../../assets';
 const Sidebar = ({ onSelectSubject, selectedId }) => {
   return (
     <aside className="sidebar">
-      <div className="logo">
+      <div className="sidebar-logo">
         <img src={logoIcon} alt="Logo" />
       </div>
 
-      <h3 className="sidebar-main-title">FÉLÉVEK</h3>
+      <hr className="sidebar-divider"/>
 
       {semesters.map((sem) => (
         <div key={sem.id} className="semester-group">

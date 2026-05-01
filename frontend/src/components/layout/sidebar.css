@@ -2,6 +2,23 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: var(--sidebar-width);
+  background-color: var(--white);
+  border-right: 1px solid var(--border-color);
+  padding: var(--spacing-lg);
+  padding-right: 0;
+  overflow-y: auto;
+}
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.sidebar-divider {
+  border-top: 1px solid var(--border-color);
+  margin-right: var(--spacing-lg);
 }
 
 .subject-list {
@@ -20,11 +37,11 @@
 .subject-list li:hover, .subject-list li.active {
   color: var(--primary-color);
   border-right: 3px solid var(--primary-color);
+  background-color: var(--bg-light);
 }
 
 .semester-label {
   font-size: 0.8rem;
   color: var(--text-muted);
-  margin-top: 15px;
   text-transform: uppercase;
 }
