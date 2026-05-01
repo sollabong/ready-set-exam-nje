@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './index.css';
 import './app.css';
 import Sidebar from './components/layout/sidebar';
+import Navbar from './components/layout/navbar';
+import GeneratorView from './components/generator/generator-view';
 
 function App() {
   const [selectedSubject, setSelectedSubject] = useState(null);
@@ -15,19 +17,11 @@ function App() {
 
       <main className="main-content">
 
-        {!selectedSubject ? (
-          <div>Válassz egy tárgyat a bal oldali menüből!</div>
+        <Navbar />
+        {selectedSubject ? (
+          <GeneratorView subject={selectedSubject} />
         ) : (
-          <div>
-            <h1>Vizsgára készülés</h1>
-            <p>{selectedSubject} - Jó gyakorlást!</p>
-            <button 
-              className="generate-btn" 
-              onClick={() => setSelectedSubject(null)}
-            >
-              Minta feladatsor generálás
-            </button>
-          </div>
+          <div className="empty-state">Válassz egy tárgyat a bal oldali menüből!</div>
         )}
       </main>
     </div>

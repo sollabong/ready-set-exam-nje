@@ -5,14 +5,6 @@
   overflow: hidden;
 }
 
-.sidebar {
-  width: var(--sidebar-width);
-  background-color: var(--white);
-  border-right: 1px solid var(--border-color);
-  padding: var(--spacing-lg);
-  overflow-y: auto;
-}
-
 .main-content {
   flex: 1;
   padding: var(--spacing-lg);
