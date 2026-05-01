@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './generator-view.css';
 import TaskCard from './task-card';
+import { tasks } from '../../../mock-data.js';
 
 const GeneratorView = ({ subject }) => {
   const [task, setTask] = useState(null);
@@ -8,9 +9,11 @@ const GeneratorView = ({ subject }) => {
 
   const handleGenerate = () => {
     setLoading(true);
+    const subjectTasks = tasks[subject.id] || [];
     setTimeout(() => {
-      setTask({ /* ... dummy adatok ... */ });
-      setLoading(false);
+      const randomTask = subjectTasks[Math.floor(Math.random() * subjectTasks.length)];
+    setTask(randomTask);
+    setLoading(false);
     }, 500);
   };
 
@@ -25,6 +28,7 @@ const GeneratorView = ({ subject }) => {
         </div>
       ) : (
         <div className="task-container">
+          <h2 className="task-subject-title">{subject.name}</h2>
           <TaskCard task={task} />
           <div className="actions">
             <button className="generate-btn" onClick={handleGenerate}>Következő feladat</button>

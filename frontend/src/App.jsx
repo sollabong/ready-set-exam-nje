@@ -19,7 +19,10 @@ function App() {
 
         <Navbar />
         {selectedSubject ? (
-          <GeneratorView subject={selectedSubject} />
+          <GeneratorView
+            key={selectedSubject.id}
+            subject={selectedSubject}
+          />
         ) : (
           <div className="empty-state">Válassz egy tárgyat a bal oldali menüből!</div>
         )}
