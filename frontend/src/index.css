@@ -1,11 +1,11 @@
 :root {
-  --primary-color: #6a5acd;  
-  --accent-color: #ff4081;       
-  --bg-light: #f8f9fe;           
-  --white: #ffffff;              
-  --text-main: #333333;          
-  --text-muted: #777777;         
-  --border-color: #e0e0e0;       
+  --primary-color: #6a5acd;
+  --accent-color: #ff4081;
+  --bg-light: #f8f9fe;
+  --white: #ffffff;
+  --text-main: #333333;
+  --text-muted: #777777;
+  --border-color: #e0e0e0;
 
   --sidebar-width: 260px;
   --spacing-sm: 8px;

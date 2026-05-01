@@ -8,16 +8,14 @@ const Sidebar = ({ onSelectSubject, selectedId }) => {
       <div className="sidebar-logo">
         <img src={logoIcon} alt="Logo" />
       </div>
-
-      <hr className="sidebar-divider"/>
-
+      <hr className="sidebar-divider" />
       {semesters.map((sem) => (
         <div key={sem.id} className="semester-group">
           <div className="semester-label">{sem.name}</div>
           <ul className="subject-list">
             {sem.subjects.map((sub) => (
-              <li 
-                key={sub.id} 
+              <li
+                key={sub.id}
                 className={selectedId === sub.id ? 'active' : ''}
                 onClick={() => onSelectSubject(sub)}
               >

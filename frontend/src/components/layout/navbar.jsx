@@ -1,11 +1,13 @@
 import './navbar.css';
 import { logo } from '../../assets';
 
-const Navbar = () => {
+const Navbar = ({ onLoginClick }) => {
   return (
     <nav className="navbar">
       <img className="logo" src={logo} alt="READYSETEXAM!" />
-      <button className="login-btn">LOGIN</button>
+      <button className="login-btn" onClick={onLoginClick}>
+        LOGIN
+      </button>
     </nav>
   );
 };

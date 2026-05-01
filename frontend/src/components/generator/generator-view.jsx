@@ -11,9 +11,10 @@ const GeneratorView = ({ subject }) => {
     setLoading(true);
     const subjectTasks = tasks[subject.id] || [];
     setTimeout(() => {
-      const randomTask = subjectTasks[Math.floor(Math.random() * subjectTasks.length)];
-    setTask(randomTask);
-    setLoading(false);
+      const randomTask =
+        subjectTasks[Math.floor(Math.random() * subjectTasks.length)];
+      setTask(randomTask);
+      setLoading(false);
     }, 500);
   };
 
@@ -31,7 +32,9 @@ const GeneratorView = ({ subject }) => {
           <h2 className="task-subject-title">{subject.name}</h2>
           <TaskCard task={task} />
           <div className="actions">
-            <button className="generate-btn" onClick={handleGenerate}>Következő feladat</button>
+            <button className="generate-btn" onClick={handleGenerate}>
+              Következő feladat
+            </button>
           </div>
         </div>
       )}

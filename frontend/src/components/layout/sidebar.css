@@ -32,7 +32,8 @@
   transition: color 0.2s;
 }
 
-.subject-list li:hover, .subject-list li.active {
+.subject-list li:hover,
+.subject-list li.active {
   color: var(--primary-color);
   font-weight: 600;
   border-right: 3px solid var(--primary-color);

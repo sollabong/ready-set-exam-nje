@@ -7,7 +7,7 @@ const TaskCard = ({ task }) => {
   return (
     <div className="task-card">
       <h2 className="task-question">{task.question}</h2>
-      
+
       {!showSolution ? (
         <button className="reveal-btn" onClick={() => setShowSolution(true)}>
           Megoldás mutatása
@@ -15,8 +15,12 @@ const TaskCard = ({ task }) => {
       ) : (
         <div className="solution-section">
           <hr />
-          <p><strong>Válasz:</strong> {task.answer}</p>
-          <p><em>Magyarázat:</em> {task.explain}</p>
+          <p>
+            <strong>Válasz:</strong> {task.answer}
+          </p>
+          <p>
+            <em>Magyarázat:</em> {task.explain}
+          </p>
         </div>
       )}
     </div>

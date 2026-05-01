@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "prettier": "^3.8.3"
