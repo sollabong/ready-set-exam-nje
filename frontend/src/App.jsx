@@ -13,6 +13,7 @@ function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [semesters, setSemesters] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     Endpoints.getSubjects()
@@ -35,6 +36,7 @@ function App() {
         <Navbar 
           onLoginClick={() => setIsLoginOpen(true)}
           onRegisterClick={() => setIsRegisterOpen(true)}
+          onLogout={() => setUser(null)}
           />
         <LoginModal
           isOpen={isLoginOpen}
