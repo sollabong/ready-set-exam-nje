@@ -10,6 +10,6 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
 } catch (PDOException $e) {
-    die("Hiba az adatbázis kapcsolatban: " . $e->getMessage());
+    die(json_encode(['error' => 'Hiba az adatbázis kapcsolatban: ' . $e->getMessage()]));
 }
 ?>
