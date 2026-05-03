@@ -3,36 +3,21 @@ import './generator-view.css';
 import TaskCard from './task-card';
 import { Endpoints } from '../../api/endpoints';
 
-const GeneratorView = ({ subject }) => {
-  const [task, setTask] = useState(null);
-  const [loading, setLoading] = useState(false);
+const GeneratorView = ({ subject, user }) => {
   const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState(null);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setLoading(true);
-    setTask(null);
+    Endpoints.getTasks(subject.id).then(res => setTasks(res.data));
+  }, [subject.id]);
 
-    Endpoints.getTasks(subject.id)
-      .then(response => {
-        setTasks(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Hiba a feladatok betöltésekor:", error);
-        setLoading(false);
-      });
-  }, [subject]);
+  const handleStatusUpdate = async (taskId, newStatus) => {
+    await Endpoints.updateProgress({ user_id: user.id, task_id: taskId, status: newStatus });
+  };
 
   const handleGenerate = () => {
-    if (tasks.length === 0) return;
-
-    setLoading(true);
-    setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * tasks.length);
-      setTask(tasks[randomIndex]);
-      setLoading(false);
-    }, 500);
+    const randomIndex = Math.floor(Math.random() * tasks.length);
+    setTask(tasks[randomIndex]);
   };
 
   return (
@@ -41,18 +26,18 @@ const GeneratorView = ({ subject }) => {
         <div className="generator-prompt">
           <h2>{subject.name}</h2>
           <button className="generate-btn" onClick={handleGenerate}>
-            {loading ? 'Generálás...' : 'FELADAT GENERÁLÁSA'}
+            FELADAT GENERÁLÁSA
           </button>
         </div>
       ) : (
         <div className="task-container">
           <h2 className="task-subject-title">{subject.name}</h2>
-          <TaskCard task={task} />
-          <div className="actions">
-            <button className="generate-btn" onClick={handleGenerate}>
-              Következő feladat
-            </button>
-          </div>
+          <TaskCard 
+            task={task}
+            key={task.id}
+            onStatusChange={(status) => handleStatusUpdate(task.id, status)}
+            onNext={handleGenerate}
+          />
         </div>
       )}
     </div>

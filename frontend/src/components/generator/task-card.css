@@ -1,4 +1,5 @@
 .task-card {
+  position: relative;
   background-color: var(--bg-light);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius);
@@ -24,16 +25,72 @@
 }
 
 .solution-section {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-lg) 0;
   text-align: left;
-  margin-top: var(--spacing-lg);
-  animation: fadeIn 0.3s ease-in;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.answer-box {
+  background: var(--white);
+  color: var(--primary-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 2px dashed var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.explain-box {
+  font-style: italic;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  background: var(--bg-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.action-buttons {
+  display: flex;
+  width: 100%;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+}
+
+.btn-review, .btn-learned, .btn-next {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-review { 
+  background: var(--primary-color); 
+  color: white;
+}
+.btn-learned { 
+  background: #00ffd5; 
+  color: white; 
+}
+
+.btn-next {
+  background: var(--accent-color);
+  color: white;
+}
+
+.btn-next:hover {
+  background: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-review:hover {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-learned:hover {
+  background: transparent;
+  border: 1px solid #00ffd5;
+  color: #00ffd5;
 }

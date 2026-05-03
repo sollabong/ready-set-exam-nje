@@ -71,6 +71,7 @@ function App() {
           <GeneratorView
             key={selectedSubject.id}
             subject={selectedSubject}
+            user={user}
           />
         )}
       </main>
