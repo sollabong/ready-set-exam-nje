@@ -8,15 +8,15 @@ const Navbar = ({ user, onLoginClick, onRegisterClick, onLogout }) => {
       <div className="nav-actions">
         {user ? (
           <button className="login-btn" onClick={onLogout}>
-            SIGN OUT
+            KILÉPÉS
           </button>
         ) : (
           <>
             <button className="login-btn" onClick={onLoginClick} style={{ marginRight: '10px' }}>
-              SIGN IN
+              BELÉPÉS
             </button>
             <button className="register-btn" onClick={onRegisterClick}>
-              SIGN UP
+              REGISZTRÁCIÓ
             </button>
           </>
         )}

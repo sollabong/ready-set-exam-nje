@@ -26,6 +26,12 @@ function App() {
       });
   }, []);
 
+  const handleLogout = () => {
+  setUser(null);
+  localStorage.removeItem('user'); 
+  alert("Sikeresen kijelentkeztél!");
+};
+
   return (
     <div className="app-container">
       <Sidebar
@@ -36,25 +42,36 @@ function App() {
         <Navbar 
           onLoginClick={() => setIsLoginOpen(true)}
           onRegisterClick={() => setIsRegisterOpen(true)}
-          onLogout={() => setUser(null)}
+          onLogout={handleLogout}
+          user={user}
           />
         <LoginModal
           isOpen={isLoginOpen}
           onClose={() => setIsLoginOpen(false)}
+          setUser={setUser}
         />
         <SignUpModal 
           isOpen={isRegisterOpen}
           onClose={() => setIsRegisterOpen(false)} 
+          setUser={setUser}
         />
-        {selectedSubject ? (
+        {!selectedSubject ? (
+          <div className="empty-state">
+            Válassz egy tárgyat a bal oldali menüből!
+          </div>
+        ) : !user ? (
+          <div className="empty-state">
+            A tartalom megtekintéséhez kérlek jelentkezz be vagy regisztrálj!
+            <div className="sign-in-register-btn-group">
+              <button className="login-btn" onClick={() => setIsLoginOpen(true)}>BELÉPÉS</button>
+              <button className="register-btn" onClick={() => setIsRegisterOpen(true)}>REGISZTRÁCIÓ</button>
+            </div>
+          </div>
+        ) : (
           <GeneratorView
             key={selectedSubject.id}
             subject={selectedSubject}
           />
-        ) : (
-          <div className="empty-state">
-            Válassz egy tárgyat a bal oldali menüből!
-          </div>
         )}
       </main>
     </div>
