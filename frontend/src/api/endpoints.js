@@ -7,4 +7,7 @@ export const Endpoints = {
   
   login: (credentials) => api.post('/login.php', credentials),
   register: (userData) => api.post('/register.php', userData),
+
+  updateProgress: (data) => api.post('/update-progress.php', data),
+  getProgress: (userId) => api.get(`/get-progress.php?user_id=${userId}`),
 };
