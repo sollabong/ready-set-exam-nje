@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import './task-card.css';
 
-const TaskCard = ({ task, onStatusChange, onNext }) => {
+const TaskCard = ({ task, status, onStatusChange, onNext }) => {
   const [showSolution, setShowSolution] = useState(false);
 
   return (
     <div className="task-card">
+      {status && (
+        <div className={`status-badge ${status}`}>
+          {status === 'learned' ? 'MEGTANULT' : 'ISMÉTLENDŐ'}
+        </div>
+      )}
       <h2 className="task-question">{task.question}</h2>
 
       {!showSolution ? (

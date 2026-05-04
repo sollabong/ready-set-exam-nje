@@ -1,6 +1,5 @@
 .task-card {
-  position: relative;
-  background-color: var(--bg-light);
+  background: var(--bg-light);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius);
   text-align: center;
@@ -8,9 +7,29 @@
   margin: 0 auto;
 }
 
+.status-badge {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: 0.6rem;
+}
+
+.status-badge.learned {
+  background: #00ffd5;
+  color: black;
+}
+
+.status-badge.repeat {
+  background: var(--primary-color);
+  color: white;
+}
+
 .task-question {
   font-size: 1.8rem;
-  margin-bottom: var(--spacing-lg);
+  margin: var(--spacing-lg)  0;
   color: var(--text-main);
 }
 
