@@ -10,17 +10,22 @@ if (!$user_id) {
 }
 
 try {
+    $stmtTotal = $pdo->query("SELECT COUNT(*) FROM tasks");
+    $total = $stmtTotal->fetchColumn();
 
-    $stmt = $pdo->prepare("
-        SELECT 
-            (SELECT COUNT(*) FROM tasks) as total_tasks,
-            (SELECT COUNT(*) FROM user_task_progress WHERE user_id = ? AND status = 'learned') as learned_tasks
-    ");
+    $stmtLearned = $pdo->prepare("SELECT COUNT(*) FROM user_task_progress WHERE user_id = ? AND status = 'learned'");
+    $stmtLearned->execute([$user_id]);
+    $learned = $stmtLearned->fetchColumn();
+
+    $stmtRepeat = $pdo->prepare("SELECT COUNT(*) FROM user_task_progress WHERE user_id = ? AND status = 'repeat'");
+    $stmtRepeat->execute([$user_id]); 
+    $repeat = $stmtRepeat->fetchColumn();
     
-    $stmt->execute([$user_id]);
-    $stats = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    echo json_encode($stats);
+    echo json_encode([
+        'total_tasks' => (int)$total,
+        'learned_tasks' => (int)$learned,
+        'repeat_tasks' => (int)$repeat
+    ]);
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }

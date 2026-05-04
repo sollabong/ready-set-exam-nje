@@ -1,0 +1,12 @@
+.level-card {
+  background: var(--bg-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin: var(--spacing-lg) 0;
+}
+
+.level-label {
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
