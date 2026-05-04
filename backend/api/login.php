@@ -19,13 +19,14 @@ try {
 
     if ($user) {
     if (password_verify($password, $user['password_hash'])) {
-        // Sikeres
+        
     } else {
-        // Helytelen jelszó
-        echo json_encode(['error' => 'A jelszó nem egyezik a tárolt hash-sel!']);
+        http_response_code(400);
+        echo json_encode(['error' => 'Hibás jelszó!']);
         exit;
     }
 } else {
+    http_response_code(400);
     echo json_encode(['error' => 'Nincs ilyen felhasználó!']);
     exit;
 }
@@ -39,7 +40,7 @@ try {
             ]
         ]);
     } else {
-        http_response_code(401);
+        http_response_code(400);
         echo json_encode(['error' => 'Hibás email cím vagy jelszó!']);
     }
 } catch (Exception $e) {
