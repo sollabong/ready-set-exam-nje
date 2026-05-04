@@ -48,3 +48,11 @@
   font-size: 1.2rem;
   color: #333;
 }
+
+.level-and-settings {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}

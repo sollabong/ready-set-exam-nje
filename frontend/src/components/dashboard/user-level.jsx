@@ -47,13 +47,15 @@ const UserLevel = ({ learned }) => {
             background: `conic-gradient(var(--primary-color) ${progress}%, #e0e0e0 0)`,
           }}
         />
-        <span className="progress-text">{current.name}</span>
+        <span className="progress-text">
+          {learned}/{next.threshold}
+        </span>
       </div>
 
       <h2 className="level-label">{current.name}</h2>
       <p className="next-level-text">
         Következő szint (<strong>{next.name}</strong>) még{' '}
-        <strong>{next.threshold - learned}</strong> kártya.
+        <strong>{next.threshold - learned}</strong> megtanult kártya.
       </p>
     </div>
   );

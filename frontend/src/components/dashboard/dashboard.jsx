@@ -3,8 +3,9 @@ import { Endpoints } from '../../api/endpoints';
 import './dashboard.css';
 import ProgressCircle from './progress-circle';
 import UserLevel from './user-level';
+import ProfileCard from './profile-card';
 
-const Dashboard = ({ user }) => {
+const Dashboard = ({ user, onLogout }) => {
   const [stats, setStats] = useState({
     total: 0,
     learned: 0,
@@ -63,7 +64,10 @@ const Dashboard = ({ user }) => {
           </p>
         </div>
       </div>
-      <UserLevel learned={learned} />
+      <div className="level-and-settings">
+        <UserLevel learned={learned} />
+        <ProfileCard user={user} onLogout={onLogout} />
+      </div>
     </div>
   );
 };

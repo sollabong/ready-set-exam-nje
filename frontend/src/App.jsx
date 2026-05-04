@@ -74,7 +74,7 @@ function App() {
                     setIsRegisterOpen={setIsRegisterOpen}
                   />
                 ) : (
-                  <Dashboard user={user} />
+                  <Dashboard user={user} onLogout={handleLogout} />
                 )
               }
             />
