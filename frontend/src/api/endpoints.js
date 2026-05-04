@@ -10,4 +10,6 @@ export const Endpoints = {
 
   updateProgress: (data) => api.post('/update-progress.php', data),
   getProgress: (userId) => api.get(`/get-progress.php?user_id=${userId}`),
+
+  getUserStats: (userId) => api.get(`/get-user-stats.php?user_id=${userId}`),
 };
