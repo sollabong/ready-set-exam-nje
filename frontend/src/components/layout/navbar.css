@@ -9,6 +9,11 @@
   height: 96px;
 }
 
+.nav-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
 .logo {
   height: 32px;
 }

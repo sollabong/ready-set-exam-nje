@@ -28,7 +28,8 @@
   margin: var(--spacing-lg) auto;
 }
 
-.login-btn {
+.login-btn,
+.logout-btn {
   background: none;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
@@ -38,7 +39,8 @@
   transition: all 0.2s;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.logout-btn:hover {
   background-color: var(--primary-color);
   color: white;
 }
@@ -56,4 +58,20 @@
 .register-btn:hover {
   background-color: var(--accent-color);
   color: white;
+}
+
+.dashboard-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-right: var(--spacing-md);
+}
+
+.dashboard-btn:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }

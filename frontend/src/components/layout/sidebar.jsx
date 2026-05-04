@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import './sidebar.css';
 import { logoIcon } from '../../assets';
 
 const Sidebar = ({ onSelectSubject, semesters }) => {
+  const navigate = useNavigate();
+
+  const handleSubjectClick = (sub) => {
+    onSelectSubject(sub);
+    navigate('/generator');
+  };
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
@@ -13,7 +20,7 @@ const Sidebar = ({ onSelectSubject, semesters }) => {
           <div className="semester-label">{sem.semester_name}</div>
           <ul className="subject-list">
             {sem.subjects.map((sub) => (
-              <li key={sub.id} onClick={() => onSelectSubject(sub)}>
+              <li key={sub.id} onClick={() => handleSubjectClick(sub)}>
                 {sub.name}
               </li>
             ))}

@@ -1,15 +1,25 @@
+import { useNavigate } from 'react-router-dom';
 import './navbar.css';
 import { logo } from '../../assets';
 
 const Navbar = ({ user, onLoginClick, onRegisterClick, onLogout }) => {
+  const navigate = useNavigate();
   return (
     <nav className="navbar">
       <img className="logo" src={logo} alt="READYSETEXAM!" />
       <div className="nav-actions">
         {user ? (
-          <button className="login-btn" onClick={onLogout}>
-            KILÉPÉS
-          </button>
+          <>
+            <button
+              className="dashboard-btn"
+              onClick={() => navigate('/dashboard')}
+            >
+              DASHBOARD
+            </button>
+            <button className="logout-btn" onClick={onLogout}>
+              KILÉPÉS
+            </button>
+          </>
         ) : (
           <>
             <button
