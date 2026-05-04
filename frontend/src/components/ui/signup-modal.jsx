@@ -13,8 +13,10 @@ const SignUpModal = ({ isOpen, onClose, setUser }) => {
     try {
       await Endpoints.register({ email, password });
       const loginResponse = await Endpoints.login({ email, password });
-      setUser(loginResponse.data.user);
-      alert('Sikeres regisztráció!');
+      const userData = loginResponse.data.user;
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+
       onClose();
     } catch (err) {
       alert(err.response?.data?.error || 'Hiba történt!');

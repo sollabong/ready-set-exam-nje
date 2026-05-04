@@ -12,10 +12,11 @@ const LoginModal = ({ isOpen, onClose, setUser }) => {
     e.preventDefault();
     try {
       const response = await Endpoints.login({ email, password });
+      const userData = response.data.user;
 
-      setUser(response.data.user);
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
 
-      alert('Sikeres bejelentkezés!');
       onClose();
     } catch (err) {
       alert(err.response?.data?.error || 'Hibás email vagy jelszó!');
