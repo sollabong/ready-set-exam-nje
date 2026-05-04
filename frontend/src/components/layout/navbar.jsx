@@ -12,7 +12,11 @@ const Navbar = ({ user, onLoginClick, onRegisterClick, onLogout }) => {
           </button>
         ) : (
           <>
-            <button className="login-btn" onClick={onLoginClick} style={{ marginRight: '10px' }}>
+            <button
+              className="login-btn"
+              onClick={onLoginClick}
+              style={{ marginRight: '10px' }}
+            >
               BELÉPÉS
             </button>
             <button className="register-btn" onClick={onRegisterClick}>

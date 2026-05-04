@@ -22,7 +22,7 @@
   color: var(--text-muted);
 }
 
-.sign-in-register-btn-group{
+.sign-in-register-btn-group {
   display: flex;
   gap: var(--spacing-lg);
   margin: var(--spacing-lg) auto;

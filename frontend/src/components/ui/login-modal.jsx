@@ -12,13 +12,13 @@ const LoginModal = ({ isOpen, onClose, setUser }) => {
     e.preventDefault();
     try {
       const response = await Endpoints.login({ email, password });
-      
+
       setUser(response.data.user);
-      
-      alert("Sikeres bejelentkezés!");
+
+      alert('Sikeres bejelentkezés!');
       onClose();
     } catch (err) {
-      alert(err.response?.data?.error || "Hibás email vagy jelszó!");
+      alert(err.response?.data?.error || 'Hibás email vagy jelszó!');
     }
   };
 
@@ -27,19 +27,19 @@ const LoginModal = ({ isOpen, onClose, setUser }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Bejelentkezés</h2>
         <form onSubmit={handleLogin}>
-          <input 
-            type="email" 
-            placeholder="Email cím" 
+          <input
+            type="email"
+            placeholder="Email cím"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required 
+            required
           />
-          <input 
-            type="password" 
-            placeholder="Jelszó" 
+          <input
+            type="password"
+            placeholder="Jelszó"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required 
+            required
           />
           <button type="submit" className="login-btn">
             Belépés

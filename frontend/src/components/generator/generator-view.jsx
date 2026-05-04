@@ -8,11 +8,15 @@ const GeneratorView = ({ subject, user }) => {
   const [task, setTask] = useState(null);
 
   useEffect(() => {
-    Endpoints.getTasks(subject.id).then(res => setTasks(res.data));
+    Endpoints.getTasks(subject.id).then((res) => setTasks(res.data));
   }, [subject.id]);
 
   const handleStatusUpdate = async (taskId, newStatus) => {
-    await Endpoints.updateProgress({ user_id: user.id, task_id: taskId, status: newStatus });
+    await Endpoints.updateProgress({
+      user_id: user.id,
+      task_id: taskId,
+      status: newStatus,
+    });
   };
 
   const handleGenerate = () => {
@@ -32,7 +36,7 @@ const GeneratorView = ({ subject, user }) => {
       ) : (
         <div className="task-container">
           <h2 className="task-subject-title">{subject.name}</h2>
-          <TaskCard 
+          <TaskCard
             task={task}
             key={task.id}
             onStatusChange={(status) => handleStatusUpdate(task.id, status)}

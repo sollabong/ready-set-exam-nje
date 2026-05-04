@@ -11,13 +11,13 @@ const SignUpModal = ({ isOpen, onClose, setUser }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-        await Endpoints.register({ email, password }); 
-        const loginResponse = await Endpoints.login({ email, password });
-        setUser(loginResponse.data.user);
-        alert("Sikeres regisztráció!");
-        onClose();
+      await Endpoints.register({ email, password });
+      const loginResponse = await Endpoints.login({ email, password });
+      setUser(loginResponse.data.user);
+      alert('Sikeres regisztráció!');
+      onClose();
     } catch (err) {
-        alert(err.response?.data?.error || "Hiba történt!");
+      alert(err.response?.data?.error || 'Hiba történt!');
     }
   };
 
@@ -26,19 +26,19 @@ const SignUpModal = ({ isOpen, onClose, setUser }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>Regisztráció</h2>
         <form onSubmit={handleRegister}>
-          <input 
+          <input
             type="email"
-            placeholder="Email cím" 
-            value={email} 
+            placeholder="Email cím"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required 
+            required
           />
-          <input 
-            type="password" 
-            placeholder="Jelszó" 
-            value={password} 
+          <input
+            type="password"
+            placeholder="Jelszó"
+            value={password}
             onChange={(e) => setPassword(e.target.value)} // Fontos: frissítjük az állapotot
-            required 
+            required
           />
           <button type="submit" className="login-btn">
             Regisztrálok

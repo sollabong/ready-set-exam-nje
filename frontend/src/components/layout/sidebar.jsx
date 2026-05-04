@@ -9,20 +9,17 @@ const Sidebar = ({ onSelectSubject, semesters }) => {
       </div>
       <hr className="sidebar-divider" />
       {semesters.map((sem, index) => (
-  <div key={index} className="semester-group">
-    <div className="semester-label">{sem.semester_name}</div>
-    <ul className="subject-list">
-      {sem.subjects.map((sub) => (
-        <li 
-          key={sub.id} 
-          onClick={() => onSelectSubject(sub)}
-        >
-          {sub.name}
-        </li>
+        <div key={index} className="semester-group">
+          <div className="semester-label">{sem.semester_name}</div>
+          <ul className="subject-list">
+            {sem.subjects.map((sub) => (
+              <li key={sub.id} onClick={() => onSelectSubject(sub)}>
+                {sub.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-    </ul>
-  </div>
-))}
     </aside>
   );
 };
